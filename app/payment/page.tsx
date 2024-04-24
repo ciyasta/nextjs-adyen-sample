@@ -12,7 +12,7 @@ export default function Payment(){
         let ignore = false;
     
         const createCheckout = async () => {
-            const session = await getSession();
+          const session = await getSession();
           const checkout = await AdyenCheckout({
             environment: 'test',
             clientKey: 'test_MNS4HSPJVFD5LLI2QKZIES4EGEXMUOFA',
@@ -36,7 +36,7 @@ export default function Payment(){
           // The 'ignore' flag is used to avoid double re-rendering caused by React 18 StrictMode
           // More about it here: https://beta.reactjs.org/learn/synchronizing-with-effects#fetching-data
           if (paymentContainer.current && !ignore) {
-            checkout.create('card').mount(paymentContainer.current);
+            checkout.create('dropin').mount(paymentContainer.current);
           }
         }
     
